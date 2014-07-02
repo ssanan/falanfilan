@@ -1,0 +1,29 @@
+#!/bin/bash
+
+satir=$2
+sutun=$4
+dosya=$5
+k="1"
+if [ -z "$satir" ] 
+then
+echo "kullanım tablooku -r number -c number file"
+exit
+fi
+satirHepsi=$(awk -F, "NR==$2 {print;}" $dosya)
+toplamSatir=$(awk -F, "END{print NR}" $dosya)
+
+for i in $satirHepsi
+do
+ if [ $k == $sutun ]
+ then
+  echo $i
+ fi
+ k=$[$k+1]
+done
+
+if [ $toplamSatir -lt $satir ]
+then
+ echo "Hata: $satir. satir $sutun. sutun yok"
+fi
+
+

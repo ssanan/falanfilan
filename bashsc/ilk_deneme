@@ -1,0 +1,3 @@
+#!/bin/bash
+echo -n Merhaba,benim adım:
+hostname
